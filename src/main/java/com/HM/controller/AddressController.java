@@ -27,10 +27,10 @@ public class AddressController {
     }
 
     // Traer un producto por ID
-    @GetMapping(path = "{idAddress}")
+    @GetMapping(path = "{IDADDRESS}")
 
     // Con @PathVariable le digo a mi metodo que la ruta que va a variar es el id, con el tipo de dato Integer
-    public Address getAddress(@PathVariable("idAddress") String address) {
+    public Address getAddress(@PathVariable("IDADDRESS") String address) {
         return addressService.readAddress(address);
     }
 
@@ -46,8 +46,8 @@ public class AddressController {
 
     // Solicitud HTTP PUT para modificar un producto
 
-    @PutMapping(path = "{idAddress}")
-    public void updateAddress(@PathVariable("idAddress")Integer idAddress,
+    @PutMapping(path = "{IDADDRESS}")
+    public void updateAddress(@PathVariable("IDADDRESS")Integer idAddress,
                               @RequestParam (required = false) String street,
                               @RequestParam (required = false) String number,
                               @RequestParam (required = false) String suburb,
@@ -63,8 +63,8 @@ public class AddressController {
     // Solicitud HTTP DELETE para eliminar un producto
 
 
-    @DeleteMapping(path = "{idAddress}")
-    public void deleteAddress(@PathVariable("idAddress")Integer idAddress) {
+    @DeleteMapping(path = "{IDADDRESS}")
+    public void deleteAddress(@PathVariable("IDADDRESS")Integer idAddress) {
         addressService.deleteAddress(idAddress);
     }
 

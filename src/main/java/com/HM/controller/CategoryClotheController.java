@@ -40,10 +40,10 @@ public class CategoryClotheController {
 	}
 	
 	// Traer un category clothe por ID
-	@GetMapping(path = "{idCategoryClothe}")
+	@GetMapping(path = "{IDCATEGORYCLOTHE}")
 	
 	// Con @PathVariable le digo a mi metodo que la ruta que va a variar es el id, con el tipo de dato Integer
-	public CategoryClothe getCategoryClothe(@PathVariable("idCategoryClothe") Integer idCategoryClothe) {
+	public CategoryClothe getCategoryClothe(@PathVariable("IDCATEGORYCLOTHE") Integer idCategoryClothe) {
 		return categoryClotheService.readCategoryClothe(idCategoryClothe);
 	}
 	
@@ -59,8 +59,8 @@ public class CategoryClotheController {
 	
 	// Solicitud HTTP PUT para modificar un category clothe
 	
-	@PutMapping(path = "{iCategoryClothe}")
-	public void updateAdmin(@PathVariable ("iCategoryClothe") Integer iCategoryClothe, 
+	@PutMapping(path = "{IDCATEGORYCLOTHE}")
+	public void updateAdmin(@PathVariable ("IDCATEGORYCLOTHE") Integer iCategoryClothe, 
 			@RequestParam (required = false) String nameCategory)
 	{
 		categoryClotheService.updateCategoryClothe(iCategoryClothe, nameCategory);
@@ -71,8 +71,8 @@ public class CategoryClotheController {
 	// Solicitud HTTP DELETE para eliminar un category clothe
 	
 	
-	@DeleteMapping(path = "{idCategoryClothe}")
-	public void deleteCategoryClothe(@PathVariable("idCategoryClothe")Integer idCategoryClothe) {
+	@DeleteMapping(path = "{IDCATEGORYCLOTHE}")
+	public void deleteCategoryClothe(@PathVariable("IDCATEGORYCLOTHE")Integer idCategoryClothe) {
 		categoryClotheService.deleteCategoryClothe(idCategoryClothe);
 	}
 	

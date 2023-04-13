@@ -28,10 +28,10 @@ public class CustomerController {
     }
 
     // Traer un producto por ID
-    @GetMapping(path = "{idCustomer}")
+    @GetMapping(path = "{IDCUSTOMER}")
 
     // Con @PathVariable le digo a mi metodo que la ruta que va a variar es el id, con el tipo de dato Integer
-    public Customer getCustomer(@PathVariable("idCustomer") Integer idCustomer) {
+    public Customer getCustomer(@PathVariable("IDCUSTOMER") Integer idCustomer) {
         return customerService.readCustomer(idCustomer);
     }
 
@@ -47,8 +47,8 @@ public class CustomerController {
 
     // Solicitud HTTP PUT para modificar un producto
 
-    @PutMapping(path = "{idCustomer}")
-    public void updateProduct(@PathVariable("idCustomer")Integer idCustomer,
+    @PutMapping(path = "{IDCUSTOMER}")
+    public void updateProduct(@PathVariable("IDCUSTOMER")Integer idCustomer,
                               @RequestParam (required = false) String firstName,
                               @RequestParam (required = false) String lastName,
                               @RequestParam (required = false) String email,
@@ -62,8 +62,8 @@ public class CustomerController {
     // Solicitud HTTP DELETE para eliminar un producto
 
 
-    @DeleteMapping(path = "{idCustomer}")
-    public void deleteCustomer(@PathVariable("idCustomer")Integer idCustomer) {
+    @DeleteMapping(path = "{IDCUSTOMER}")
+    public void deleteCustomer(@PathVariable("IDCUSTOMER")Integer idCustomer) {
         customerService.deleteCustomer(idCustomer);
     }
 

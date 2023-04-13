@@ -41,10 +41,10 @@ public class OrderController {
 		}
 	
 	// Traer un producto por ID GET
-		@GetMapping(path = "{idOrder}")
+		@GetMapping(path = "{IDORDER}")
 		
 		// Con @PathVariable le digo a mi metodo que la ruta que va a variar es el id, con el tipo de dato Integer
-		public Order getProduct(@PathVariable("idOrder") Integer idOrder) {
+		public Order getProduct(@PathVariable("IDORDER") Integer idOrder) {
 			return orderService.readOrder(idOrder);
 		}
 		
@@ -59,9 +59,9 @@ public class OrderController {
 		
 		/************UPDATE**********************/
 		//Solicitud HTTP PUT para modificar un platillo
-		@PutMapping(path = "{idOrder}")
+		@PutMapping(path = "{IDORDER}")
 		
-		public void updateOrder(@PathVariable("idOrder")Integer idOrder, 
+		public void updateOrder(@PathVariable("IDORDER")Integer idOrder, 
 				@RequestParam (required = false) String orderDate, 
 				@RequestParam (required = false) Integer fk_idCustomer)
 				{
@@ -73,8 +73,8 @@ public class OrderController {
 		// Solicitud HTTP DELETE para eliminar un producto
 		
 		
-		@DeleteMapping(path = "{idOrder}")
-		public void deleteProduct(@PathVariable("idOrder")Integer idOrder) {
+		@DeleteMapping(path = "{IDORDER}")
+		public void deleteProduct(@PathVariable("IDORDER")Integer idOrder) {
 			orderService.deleteOrder(idOrder);
 		}
 	

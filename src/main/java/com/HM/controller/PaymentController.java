@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.HM.model.Payment;
-import com.HM.model.Product;
 import com.HM.service.PaymentService;
 
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,RequestMethod.PUT })
@@ -43,10 +42,10 @@ public class PaymentController {
 	}
 	
 	// Traer un producto por ID
-	@GetMapping(path = "{idPayment}")
+	@GetMapping(path = "{IDPAYMENT}")
 		
 	// Con @PathVariable le digo a mi metodo que la ruta que va a variar es el id, con el tipo de dato Integer
-	public Payment getPayment(@PathVariable("idPayment") int idPayment) {
+	public Payment getPayment(@PathVariable("IDPAYMENT") int idPayment) {
 		return paymentService.readPayment(idPayment);
 	}
 	
@@ -62,8 +61,8 @@ public class PaymentController {
 	/****************************** UPDATE ******************************/
 	// Solicitud HTTP PUT para modificar un producto
 	
-	@PutMapping(path = "{idPayment}")
-	public void updatePayment(@PathVariable("idPayment")int idPayment, 
+	@PutMapping(path = "{IDPAYMENT}")
+	public void updatePayment(@PathVariable("IDPAYMENT")int idPayment, 
 			@RequestParam (required = false) Date paymentDate, 
 			@RequestParam (required = false) int fk_idOrder)
 	{
@@ -75,8 +74,8 @@ public class PaymentController {
 	// Solicitud HTTP DELETE para eliminar un producto
 	
 	
-	@DeleteMapping(path = "{idPayment}")
-	public void deletePayment(@PathVariable("idPayment")Integer id) {
+	@DeleteMapping(path = "{IDPAYMENT}")
+	public void deletePayment(@PathVariable("IDPAYMENT")Integer id) {
 		paymentService.deletePayment(id);
 	}
 }

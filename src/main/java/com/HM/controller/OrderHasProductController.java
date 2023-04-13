@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.HM.model.OrderHasProduct;
-import com.HM.model.Payment;
 import com.HM.service.OrderHasProductService;
-import com.HM.service.PaymentService;
 
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,RequestMethod.PUT })
 
@@ -44,10 +42,10 @@ public class OrderHasProductController {
 	}
 		
 	// Traer un producto por ID
-	@GetMapping(path = "{fk_idOrder}")
+	@GetMapping(path = "{FK_IDORDER}")
 			
 	// Con @PathVariable le digo a mi metodo que la ruta que va a variar es el id, con el tipo de dato Integer
-	public OrderHasProduct getOrderHasProduct(@PathVariable("fk_idOrder") Integer fk_idOrder) {
+	public OrderHasProduct getOrderHasProduct(@PathVariable("FK_IDORDER") Integer fk_idOrder) {
 		return orderHasProductService.readOrderHasProduct(fk_idOrder);
 	}
 	
@@ -62,8 +60,8 @@ public class OrderHasProductController {
 	/****************************** UPDATE ******************************/
 	// Solicitud HTTP PUT para modificar un producto
 	
-	@PutMapping(path = "{fk_idOrder}")
-	public void updateOrderHasProduct(@PathVariable("fk_idOrder")int fk_idOrder, 
+	@PutMapping(path = "{FK_IDORDER}")
+	public void updateOrderHasProduct(@PathVariable("FK_IDORDER")int fk_idOrder, 
 			@RequestParam (required = false) int fk_idProduct, 
 			@RequestParam (required = false) int quantity)
 	{
@@ -75,8 +73,8 @@ public class OrderHasProductController {
 	// Solicitud HTTP DELETE para eliminar un producto
 	
 	
-	@DeleteMapping(path = "{fk_idOrder}")
-	public void deleteOrderHasProduct(@PathVariable("fk_idOrder")Integer id) {
+	@DeleteMapping(path = "{FK_IDORDER}")
+	public void deleteOrderHasProduct(@PathVariable("FK_IDORDER")Integer id) {
 		orderHasProductService.deleteOrderHasProduct(id);
 	}
 	
