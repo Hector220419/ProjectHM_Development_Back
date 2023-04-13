@@ -40,10 +40,10 @@ public class AdminController {
 	}
 	
 	// Traer un Admino por ID
-	@GetMapping(path = "{idAdmin}")
+	@GetMapping(path = "{IDADMIN}")
 	
 	// Con @PathVariable le digo a mi metodo que la ruta que va a variar es el id, con el tipo de dato Integer
-	public Admin getAdmin(@PathVariable("idAdmin") Integer idAdmin) {
+	public Admin getAdmin(@PathVariable("IDADMIN") Integer idAdmin) {
 		return adminService.readAdmin(idAdmin);
 	}
 	
@@ -59,8 +59,8 @@ public class AdminController {
 	
 	// Solicitud HTTP PUT para modificar un Admino
 	
-	@PutMapping(path = "{idAdmin}")
-	public void updateAdmin(@PathVariable ("idAdmin") Integer idAdmin, 
+	@PutMapping(path = "{IDADMIN}")
+	public void updateAdmin(@PathVariable ("IDADMIN") Integer idAdmin, 
 			@RequestParam (required = false) String email,
 			@RequestParam (required = false) String password)
 	{
@@ -72,8 +72,8 @@ public class AdminController {
 	// Solicitud HTTP DELETE para eliminar un Admino
 	
 	
-	@DeleteMapping(path = "{idAdmin}")
-	public void deleteAdmin(@PathVariable("idAdmin")Integer idAdmin) {
+	@DeleteMapping(path = "{IDADMIN}")
+	public void deleteAdmin(@PathVariable("IDADMIN")Integer idAdmin) {
 		adminService.deleteAdmin(idAdmin);
 	}
 	
