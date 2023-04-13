@@ -1,17 +1,11 @@
 package com.HM.model;
 
-import lombok.*;
-
 import javax.persistence.*;
 
 @Entity
 // Esta clase product se convierte en una entidad de JPA para manejar una persistencia de datos (que esta informacion se quede guardada en una DB)
 @Table(name = "ADDRESS") // Especificamos el nombre de la tabla de mysql a donde llega esta informacion
-@Getter// Libreria de lombok sirve para omitir hacer los getter, setter constructor y metodo toString
-@Setter
-@AllArgsConstructor
-@ToString
-@NoArgsConstructor
+
 public class Address {
 
     @Id //especificamos que nuestra llave primaria es el campo id
@@ -28,8 +22,6 @@ public class Address {
 
     @Column(name = "SUBURB", unique = true, nullable = false)
     private String suburb;
-
-
 
     @Column(name = "CP", unique = true, nullable = false)
     private String cp;

@@ -1,7 +1,6 @@
 package com.HM.service;
 
 import com.HM.model.Address;
-import com.HM.model.Product;
 import com.HM.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
