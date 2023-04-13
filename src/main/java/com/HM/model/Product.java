@@ -1,6 +1,4 @@
 package com.HM.model;
-import lombok.*;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity // Esta clase product se convierte en una entidad de JPA para manejar una persistencia de datos (que esta informacion se quede guardada en una DB)
-@Table(name = "PRODUCT") // Especificamos el nombre de la tabla de mysql a donde llega esta informacion
+@Table(name = "product") // Especificamos el nombre de la tabla de mysql a donde llega esta informacion
 
 public class Product {
 	
@@ -24,7 +22,7 @@ public class Product {
 	
 	@Column(name = "PRICE", nullable = false)
 	private Double price;
-	
+
 	@Column(name = "STOCK", nullable = false)
 	private Integer stock;
 	
@@ -39,20 +37,21 @@ public class Product {
 	
 	@Column(name = "CATEGORY", nullable = false)
 	private String category;
-
+	
 	@Column(name = "IMAGE", nullable = false)
 	private String image;
-
+	
 	@Column(name = "FK_IDCATEGORYCLOTHE", nullable = false)
-	private Integer fk_idCategoryClothe;
-
+	private String fk_idCategoryClothe;
+	
 	@Column(name = "FK_IDADMIN", nullable = false)
-	private Integer fk_idAdmin;
-
-	public Product() {
+	private String fk_idAdmin;
+	
+	public Product () {
+		
 	}
 
-	public Product(Integer idProduct, String name, Double price, Integer stock, String description, String color, String size, String category, String image, Integer fk_idCategoryClothe, Integer fk_idAdmin) {
+	public Product(Integer idProduct, String name, Double price, Integer stock, String description, String color, String size, String category, String image, String fk_idCategoryClothe, String fk_idAdmin) {
 		this.idProduct = idProduct;
 		this.name = name;
 		this.price = price;
@@ -68,10 +67,6 @@ public class Product {
 
 	public Integer getIdProduct() {
 		return idProduct;
-	}
-
-	public void setIdProduct(Integer idProduct) {
-		this.idProduct = idProduct;
 	}
 
 	public String getName() {
@@ -121,15 +116,15 @@ public class Product {
 	public void setSize(String size) {
 		this.size = size;
 	}
-
+	
 	public String getCategory() {
 		return category;
 	}
-
+	
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
+	
 	public String getImage() {
 		return image;
 	}
@@ -138,19 +133,28 @@ public class Product {
 		this.image = image;
 	}
 
-	public Integer getFk_idCategoryClothe() {
+	public String getFk_idCategoryClothe() {
 		return fk_idCategoryClothe;
 	}
 
-	public void setFk_idCategoryClothe(Integer fk_idCategoryClothe) {
+	public void setFk_idCategoryClothe(String fk_idCategoryClothe) {
 		this.fk_idCategoryClothe = fk_idCategoryClothe;
 	}
 
-	public Integer getFk_idAdmin() {
+	public String getFk_idAdmin() {
 		return fk_idAdmin;
 	}
 
-	public void setFk_idAdmin(Integer fk_idAdmin) {
+	public void setFk_idAdmin(String fk_idAdmin) {
 		this.fk_idAdmin = fk_idAdmin;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [idProduct=" + idProduct + ", name=" + name + ", price=" + price + ", stock=" + stock
+				+ ", description=" + description + ", color=" + color + ", size=" + size + ", category=" + category
+				+ ", image=" + image + ", fk_idCategoryClothe=" + fk_idCategoryClothe + ", fk_idAdmin=" + fk_idAdmin
+				+ "]";
+	}
+
 }

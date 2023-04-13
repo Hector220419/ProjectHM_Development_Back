@@ -23,7 +23,6 @@ public class ProductService {
 
 	// Uso ese objeto como parametro de mi constructor
 	public ProductService(ProductRepository productRepository) {
-
 		this.productRepository = productRepository;
 	}
 
@@ -66,7 +65,7 @@ public class ProductService {
 	// Actualizar producto (Update)
 	
 	//Necesitamos pasar todos los parametros, para contemplar todas las modificaciones posibles
-	public void updateProduct(Integer idProduct, String name, Double price, Integer stock, String description, String color, String size, String image) {
+	public void updateProduct(Integer idProduct, String name, Double price, Integer stock, String description, String color, String size, String category, String image, String fk_idCategoryClothe, String fk_idAdmin) {		
 		//Si el producto existe, entonces se modifica
 		if (productRepository.existsById(idProduct)) {
 			//entonces lo modifico
@@ -79,7 +78,10 @@ public class ProductService {
 			if (description!=null) findProduct.setDescription(description);
 			if (color!=null) findProduct.setColor(color);
 			if (size!=null) findProduct.setSize(size);
+			if (category!=null) findProduct.setCategory(category);
 			if (image!=null) findProduct.setImage(image);
+			if (fk_idCategoryClothe!=null) findProduct.setFk_idCategoryClothe(fk_idCategoryClothe);
+			if (fk_idAdmin!=null) findProduct.setFk_idAdmin(fk_idAdmin);
 			
 			//cuando termino de editar el objeto...
 			productRepository.save(findProduct);
