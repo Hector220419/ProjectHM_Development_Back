@@ -31,7 +31,6 @@ public class ProductController {
 	@Autowired // Anotacion para relacionar e inyectar dependencia
 	// Constructor que usa el objeto ProductService como parametro
 	public ProductController (ProductService productService) {
-
 		this.productService = productService;
 	}
 	
@@ -62,16 +61,19 @@ public class ProductController {
 	// Solicitud HTTP PUT para modificar un producto
 	
 	@PutMapping(path = "{idProduct}")
-	public void updateProduct(@PathVariable("idProduct")Integer idProduct,
+	public void updateProduct(@PathVariable("idProduct")Integer idProduct, 
 			@RequestParam (required = false) String name, 
 			@RequestParam (required = false) Double price, 
 			@RequestParam (required = false) Integer stock, 
 			@RequestParam (required = false) String description,
 			@RequestParam (required = false) String color,
 			@RequestParam (required = false) String size,
-			@RequestParam (required = false) String image)
+			@RequestParam (required = false) String category,
+			@RequestParam (required = false) String image,
+			@RequestParam (required = false) String fk_idCategoryClothe,
+			@RequestParam (required = false) String fk_idAdmin)
 	{
-		productService.updateProduct(idProduct,name, price, stock, description, color, size, image);
+		productService.updateProduct(idProduct,name, price, stock, description, color, size, category, image, fk_idCategoryClothe, fk_idAdmin);
 	}
 	
 	/****************************** DELETE ******************************/
@@ -80,8 +82,8 @@ public class ProductController {
 	
 	
 	@DeleteMapping(path = "{idProduct}")
-	public void deleteProduct(@PathVariable("idProduct")Integer idProduct) {
-		productService.deleteProduct(idProduct);
+	public void deleteProduct(@PathVariable("idProduct")Integer id) {
+		productService.deleteProduct(id);
 	}
 	
 	// GET Product (GET)

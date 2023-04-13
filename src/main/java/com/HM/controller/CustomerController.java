@@ -10,7 +10,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,RequestMethod.PUT })
 
 @RestController // Anotacion para indicar que esta clase es un controlador
-@RequestMapping(path = "/wm/custumer/")
+@RequestMapping(path = "/wm/customer/")
 
 public class CustomerController {
 
