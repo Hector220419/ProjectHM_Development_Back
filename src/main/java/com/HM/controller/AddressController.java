@@ -34,7 +34,7 @@ public class AddressController {
         return addressService.readAddress(address);
     }
 
-    /****************************** POST ******************************/
+    /****************************** POST address ******************************/
 
     // Solicitud HTTP POST para crear un producto
     @PostMapping
