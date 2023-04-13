@@ -21,7 +21,7 @@ import com.HM.service.ProductService;
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,RequestMethod.PUT })
 
 @RestController // Anotacion para indicar que esta clase es un controlador
-@RequestMapping (path = "/hm/product/")
+@RequestMapping (path = "/wm/product/")
 
 public class ProductController {
 
@@ -31,6 +31,7 @@ public class ProductController {
 	@Autowired // Anotacion para relacionar e inyectar dependencia
 	// Constructor que usa el objeto ProductService como parametro
 	public ProductController (ProductService productService) {
+
 		this.productService = productService;
 	}
 	
@@ -44,7 +45,7 @@ public class ProductController {
 	@GetMapping(path = "{idProduct}")
 	
 	// Con @PathVariable le digo a mi metodo que la ruta que va a variar es el id, con el tipo de dato Integer
-	public Product getProduct(@PathVariable("idProduct") Long idProduct) {
+	public Product getProduct(@PathVariable("idProduct") Integer idProduct) {
 		return productService.readProduct(idProduct);
 	}
 	
@@ -61,7 +62,7 @@ public class ProductController {
 	// Solicitud HTTP PUT para modificar un producto
 	
 	@PutMapping(path = "{idProduct}")
-	public void updateProduct(@PathVariable("idProduct")Long idProduct, 
+	public void updateProduct(@PathVariable("idProduct")Integer idProduct,
 			@RequestParam (required = false) String name, 
 			@RequestParam (required = false) Double price, 
 			@RequestParam (required = false) Integer stock, 
@@ -79,8 +80,8 @@ public class ProductController {
 	
 	
 	@DeleteMapping(path = "{idProduct}")
-	public void deleteProduct(@PathVariable("idProduct")Long id) {
-		productService.deleteProduct(id);
+	public void deleteProduct(@PathVariable("idProduct")Integer idProduct) {
+		productService.deleteProduct(idProduct);
 	}
 	
 	// GET Product (GET)

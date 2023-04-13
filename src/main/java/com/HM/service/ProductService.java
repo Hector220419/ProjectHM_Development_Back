@@ -23,6 +23,7 @@ public class ProductService {
 
 	// Uso ese objeto como parametro de mi constructor
 	public ProductService(ProductRepository productRepository) {
+
 		this.productRepository = productRepository;
 	}
 
@@ -56,7 +57,7 @@ public class ProductService {
 		return productRepository.findAll();
 	}
 	
-	public Product readProduct(Long idProduct){
+	public Product readProduct(Integer idProduct){
 		 return productRepository.findById(idProduct).orElseThrow(()-> new IllegalStateException("The product " + "with id " + idProduct + " does not exist.") );
 	}
 	
@@ -65,7 +66,7 @@ public class ProductService {
 	// Actualizar producto (Update)
 	
 	//Necesitamos pasar todos los parametros, para contemplar todas las modificaciones posibles
-	public void updateProduct(Long idProduct, String name, Double price, Integer stock, String description, String color, String size, String image) {		
+	public void updateProduct(Integer idProduct, String name, Double price, Integer stock, String description, String color, String size, String image) {
 		//Si el producto existe, entonces se modifica
 		if (productRepository.existsById(idProduct)) {
 			//entonces lo modifico
@@ -91,7 +92,7 @@ public class ProductService {
 	/****************************** DELETE ******************************/
 	
 	//Borrar producto (Delete)
-		public void deleteProduct(Long idProduct) {
+		public void deleteProduct(Integer idProduct) {
 			//Buscamos un producto por id, y si existe...
 			if (productRepository.existsById(idProduct)) {//true
 				//Lo borramos

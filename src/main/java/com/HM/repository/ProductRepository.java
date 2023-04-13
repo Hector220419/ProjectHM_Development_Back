@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.HM.model.Product;
 
-public interface ProductRepository extends JpaRepository<Product, Long>{
+public interface ProductRepository extends JpaRepository<Product, Integer>{
 	
 	@Query("SELECT p FROM Product p WHERE name = ?1") // Se utiliza el primer parametro encontrado
 	

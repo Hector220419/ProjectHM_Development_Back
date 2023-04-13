@@ -9,6 +9,9 @@ public class HmApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HmApplication.class, args);
 		
-		System.out.println("Corro bien, sin problemas");
+		System.out.println("Pagina Web W&M, ejecutando con exito!! ");
+
+
+
 	}
 }
