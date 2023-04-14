@@ -1,6 +1,5 @@
 package com.HM.service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.HM.model.Payment;
-import com.HM.model.Product;
 import com.HM.repository.PaymentRepository;
-import com.HM.repository.ProductRepository;
 
 @Service
 public class PaymentService {
@@ -65,7 +62,7 @@ public class PaymentService {
 	// Actualizar producto (Update)
 	
 	//Necesitamos pasar todos los parametros, para contemplar todas las modificaciones posibles
-	public void updatePayment(Integer idPayment, Date paymentDate, Integer fk_idOrder) {		
+	public void updatePayment(Integer idPayment, String paymentDate, Integer fk_idOrder) {		
 		//Si el producto existe, entonces se modifica
 		if (paymentRepository.existsById(idPayment)) {
 			//entonces lo modifico
@@ -95,12 +92,5 @@ public class PaymentService {
 				paymentRepository.deleteById(idPayment);
 			}
 		}
-
-
-
-public void updatePayment(Date paymentDate, Integer fk_idOrder) {
-	// TODO Auto-generated method stub
-	
-}
 	
 }

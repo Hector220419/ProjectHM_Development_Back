@@ -21,7 +21,7 @@ public class Payment {
 	private Integer idPayment;
 	
 	@Column(name = "PAYMENTDATE", unique = true, nullable = false)
-	private Date paymentDate;
+	private String paymentDate;
 	
 	@Column(name = "FK_IDORDER", unique = true, nullable = false)
 	private Integer fk_idOrder;
@@ -30,7 +30,7 @@ public class Payment {
 		
 	}
 
-	public Payment(int idPayment, Date paymentDate, int fk_idOrder) {
+	public Payment(int idPayment, String paymentDate, Integer fk_idOrder) {
 		this.idPayment = idPayment;
 		this.paymentDate = paymentDate;
 		this.fk_idOrder = fk_idOrder;
@@ -44,11 +44,11 @@ public class Payment {
 		this.idPayment = idPayment;
 	}*/
 
-	public Date getPaymentDate() {
+	public String getPaymentDate() {
 		return paymentDate;
 	}
 
-	public void setPaymentDate(Date paymentDate) {
+	public void setPaymentDate(String paymentDate) {
 		this.paymentDate = paymentDate;
 	}
 
@@ -56,7 +56,7 @@ public class Payment {
 		return fk_idOrder;
 	}
 
-	public void setFk_idOrder(int fk_idOrder) {
+	public void setFk_idOrder(Integer fk_idOrder) {
 		this.fk_idOrder = fk_idOrder;
 	}
 
