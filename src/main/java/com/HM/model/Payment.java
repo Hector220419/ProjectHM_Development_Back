@@ -22,6 +22,9 @@ public class Payment {
     @Column(name = "PAYMENTDATE", nullable = false)
     private String paymentDate;
     
+    @Column(name = "AMOUNT", nullable = false)
+    private Double amount;
+    
     @Column(name = "FK_IDORDER", nullable = false)
     private Integer fk_idOrder;
     
@@ -29,9 +32,10 @@ public class Payment {
     	
     }
 
-	public Payment(Integer idPayment, String paymentDate, Integer fk_idOrder) {
+	public Payment(Integer idPayment, String paymentDate, Double amount,Integer fk_idOrder) {
 		this.idPayment = idPayment;
 		this.paymentDate = paymentDate;
+		this.amount = amount;
 		this.fk_idOrder = fk_idOrder;
 	}
 
@@ -46,6 +50,14 @@ public class Payment {
 	public void setPaymentDate(String paymentDate) {
 		this.paymentDate = paymentDate;
 	}
+	
+	public Double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
 
 	public Integer getFk_idOrder() {
 		return fk_idOrder;
@@ -57,7 +69,8 @@ public class Payment {
 
 	@Override
 	public String toString() {
-		return "Payment [idPayment=" + idPayment + ", paymentDate=" + paymentDate + ", fk_idOrder=" + fk_idOrder + "]";
+		return "Payment [idPayment=" + idPayment + ", paymentDate=" + paymentDate + ", amount=" + amount
+				+ ", fk_idOrder=" + fk_idOrder + "]";
 	}
-    
+
 }

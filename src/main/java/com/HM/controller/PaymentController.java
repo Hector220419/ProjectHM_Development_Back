@@ -62,10 +62,11 @@ public class PaymentController {
 	
 	@PutMapping(path = "{IDPAYMENT}")
 	public void updatePayment(@PathVariable("IDPAYMENT")Integer idPayment, 
-			@RequestParam (required = false) String paymentDate, 
+			@RequestParam (required = false) String paymentDate,
+			@RequestParam (required = false) Double amount, 
 			@RequestParam (required = false) Integer fk_idOrder)
 	{
-		paymentService.updatePayment(idPayment,paymentDate, fk_idOrder);
+		paymentService.updatePayment(idPayment,paymentDate,amount,fk_idOrder);
 	}
 	
 	

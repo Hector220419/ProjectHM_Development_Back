@@ -48,7 +48,7 @@ public class PaymentService {
 	// Actualizar producto (Update)
 	
 	//Necesitamos pasar todos los parametros, para contemplar todas las modificaciones posibles
-	public void updatePayment(Integer idPayment, String paymentDate, Integer fk_idOrder) {		
+	public void updatePayment(Integer idPayment, String paymentDate, Double amount,Integer fk_idOrder) {		
 		//Si el producto existe, entonces se modifica
 		if (paymentRepository.existsById(idPayment)) {
 			//entonces lo modifico
@@ -56,6 +56,7 @@ public class PaymentService {
 			//traigo el objeto, y lo pongo en la variable temporal
 			Payment findPayment = paymentRepository.getById(idPayment);
 			if (paymentDate!=null) findPayment.setPaymentDate(paymentDate);
+			if (amount!=null) findPayment.setAmount(amount);
 			if (fk_idOrder!=null) findPayment.setFk_idOrder(fk_idOrder);
 			
 			//cuando termino de editar el objeto...
