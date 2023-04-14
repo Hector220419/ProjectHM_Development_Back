@@ -64,7 +64,7 @@ public class OrderHasProductController {
 			@RequestParam (required = false) Integer fk_idProduct, 
 			@RequestParam (required = false) Integer quantity)
 	{
-		orderHasProductService.updateOrderHasProduct(fk_idProduct, quantity);
+		orderHasProductService.updateOrderHasProduct(fk_idOrder,fk_idProduct, quantity);
 	}
 	
 	

@@ -75,12 +75,4 @@ public class OrderHasProductService {
 				orderHasProductRepository.deleteById(fk_idOrder);
 			}
 		}
-
-
-
-public void updateOrderHasProduct(Integer fk_idProduct, Integer quantity) {
-	// TODO Auto-generated method stub
-	
-}
-	
 }
