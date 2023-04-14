@@ -2,6 +2,7 @@ package com.HM.service;
 
 import com.HM.model.Customer;
 import com.HM.repository.CustomerRepository;
+import com.HM.utils.SHAUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,16 +38,32 @@ public class CustomerService {
         // Si hay algo en ese Optional.isPresent nos regresa un true o un false
 
         // Necesitamos saber si el customer buscado existe
-        Optional<Customer> findCustomer = customerRepository.findByName(customer.getFirstName()); // Buscamos por nombre
+        Optional<Customer> findCustomer = customerRepository.findByEmail(customer.getEmail()); // Buscamos por nombre
 
         if(findCustomer.isPresent()) {
-            throw new IllegalStateException("The customer names " + customer.getFirstName() + " is already exists");
+            throw new IllegalStateException("The customer names " + customer.getEmail() + " is already exists");
         }
-        else {
-            customerRepository.save(customer);
-        }
+        customer.setPassword( SHAUtil.createHash(customer.getPassword()) );
+        customerRepository.save(customer);
+
         // Si no existe, entonces lo guardamos en la base de datos
     }
+
+    //Metodo para iniciar sesion
+    public boolean login(String email, String password) { //recibimos el username y el password
+        boolean respuesta=false; //creamos una variable booleana y la iniciamos en false
+        Optional<Customer> customer = customerRepository.findByEmail(email); //buscamos en el repository si el usuario existe por nombre
+        //si el usuario existe
+        if (customer.isPresent()) {
+            //System.out.println("Password SHA: " + SHAUtil.createHash(password));
+            //validamos que la constrasena proporcionada sea igual que la contrasena en la base de datos
+            if (customer.get().getPassword().equals(password)){
+                //si la respuesta es correcta, cambiamos respuesta a true
+                respuesta=true;
+            }//if password
+        }//if isPresent
+        return respuesta; //imprimimos si el inicio de sesion fue exitoso (true) o no (false)
+    }//login
 
     /****************************** READ ******************************/
 
@@ -98,5 +115,18 @@ public class CustomerService {
 
     // Actualizar customer (Update)
     // Borrar customer (Delete)
+
+    //Metodo para iniciar sesion cifrada
+    public boolean loginCifrado(String customerEmail,String password){
+        boolean respuesta = false;
+        Optional<Customer> customer = customerRepository.findByEmail(customerEmail);
+        if(customer.isPresent()){
+            System.out.println("Password SHA: " + SHAUtil.createHash(password));
+            if(SHAUtil.verifyHash(password, customer.get().getPassword())){
+                respuesta = true;
+            }
+        }
+        return respuesta;
+    }
 
 }

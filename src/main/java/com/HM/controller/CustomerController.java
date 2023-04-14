@@ -19,17 +19,18 @@ public class CustomerController {
     private final CustomerService customerService;
 
     public CustomerController(CustomerService customerService){
+
         this.customerService = customerService;
     }
     // Solicitudes HTTP para traer todos los productos
     @GetMapping
     public List<Customer> getCustomer(){
+
         return customerService.readCustomer();
     }
 
     // Traer un producto por ID
     @GetMapping(path = "{IDCUSTOMER}")
-
     // Con @PathVariable le digo a mi metodo que la ruta que va a variar es el id, con el tipo de dato Integer
     public Customer getCustomer(@PathVariable("IDCUSTOMER") Integer idCustomer) {
         return customerService.readCustomer(idCustomer);
