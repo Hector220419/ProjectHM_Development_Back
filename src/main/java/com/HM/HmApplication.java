@@ -10,8 +10,5 @@ public class HmApplication {
 		SpringApplication.run(HmApplication.class, args);
 		
 		System.out.println("Pagina Web W&M, ejecutando con exito!! ");
-
-
-
 	}
 }
