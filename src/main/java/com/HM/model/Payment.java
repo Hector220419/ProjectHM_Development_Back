@@ -30,7 +30,7 @@ public class Payment {
 		
 	}
 
-	public Payment(int idPayment, String paymentDate, Integer fk_idOrder) {
+	public Payment(Integer idPayment, String paymentDate, Integer fk_idOrder) {
 		this.idPayment = idPayment;
 		this.paymentDate = paymentDate;
 		this.fk_idOrder = fk_idOrder;
