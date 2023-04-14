@@ -20,10 +20,10 @@ public class Payment {
 	@Column(name = "IDPAYMENT", unique = true, nullable = false)
 	private Integer idPayment;
 	
-	@Column(name = "PAYMENTDATE", unique = true, nullable = false)
+	@Column(name = "PAYMENTDATE", nullable = false)
 	private String paymentDate;
 	
-	@Column(name = "FK_IDORDER", unique = true, nullable = false)
+	@Column(name = "FK_IDORDER", nullable = false)
 	private Integer fk_idOrder;
 	
 	public Payment () {
