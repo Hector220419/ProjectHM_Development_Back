@@ -1,14 +1,11 @@
 package com.HM.service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.HM.model.OrderHasProduct;
-
 import com.HM.repository.OrderHasProductRepository;
 
 @Service
@@ -28,20 +25,8 @@ public class OrderHasProductService {
 	// Crear payment(Create)
 	public void createOrderHasProduct(OrderHasProduct orderHasProduct) {
 		
-		// Primero guardamos el dato en un optional
-		// Si hay algo en ese Optional.isPresent nos regresa un true o un false
-		
-		// Necesitamos saber si el producto buscado existe
-		Optional<OrderHasProduct> findOrderHasProduct = orderHasProductRepository.findById(orderHasProduct.getFk_idOrder()); // Buscamos por nombre
-		
-		if(findOrderHasProduct.isPresent()) {
-			throw new IllegalStateException("The order id" + orderHasProduct.getFk_idOrder() + "  already exists");
-		}
-		else {
 			orderHasProductRepository.save(orderHasProduct);
-		}
 		// Si no existe, entonces lo guardamos en la base de datos
-		
 	}
 	
 	
