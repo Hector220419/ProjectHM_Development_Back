@@ -1,6 +1,5 @@
 package com.HM.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,11 +60,11 @@ public class OrderHasProductController {
 	// Solicitud HTTP PUT para modificar un producto
 	
 	@PutMapping(path = "{FK_IDORDER}")
-	public void updateOrderHasProduct(@PathVariable("FK_IDORDER")int fk_idOrder, 
-			@RequestParam (required = false) int fk_idProduct, 
-			@RequestParam (required = false) int quantity)
+	public void updateOrderHasProduct(@PathVariable("FK_IDORDER")Integer fk_idOrder, 
+			@RequestParam (required = false) Integer fk_idProduct, 
+			@RequestParam (required = false) Integer quantity)
 	{
-		orderHasProductService.updateOrderHasProduct(fk_idProduct, quantity);
+		orderHasProductService.updateOrderHasProduct(fk_idOrder,fk_idProduct, quantity);
 	}
 	
 	

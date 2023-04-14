@@ -1,6 +1,5 @@
 package com.HM.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +44,7 @@ public class PaymentController {
 	@GetMapping(path = "{IDPAYMENT}")
 		
 	// Con @PathVariable le digo a mi metodo que la ruta que va a variar es el id, con el tipo de dato Integer
-	public Payment getPayment(@PathVariable("IDPAYMENT") int idPayment) {
+	public Payment getPayment(@PathVariable("IDPAYMENT") Integer idPayment) {
 		return paymentService.readPayment(idPayment);
 	}
 	
@@ -62,11 +61,12 @@ public class PaymentController {
 	// Solicitud HTTP PUT para modificar un producto
 	
 	@PutMapping(path = "{IDPAYMENT}")
-	public void updatePayment(@PathVariable("IDPAYMENT")int idPayment, 
-			@RequestParam (required = false) Date paymentDate, 
-			@RequestParam (required = false) int fk_idOrder)
+	public void updatePayment(@PathVariable("IDPAYMENT")Integer idPayment, 
+			@RequestParam (required = false) String paymentDate,
+			@RequestParam (required = false) Double amount, 
+			@RequestParam (required = false) Integer fk_idOrder)
 	{
-		paymentService.updatePayment(paymentDate, fk_idOrder);
+		paymentService.updatePayment(idPayment,paymentDate,amount,fk_idOrder);
 	}
 	
 	
@@ -75,7 +75,7 @@ public class PaymentController {
 	
 	
 	@DeleteMapping(path = "{IDPAYMENT}")
-	public void deletePayment(@PathVariable("IDPAYMENT")Integer id) {
-		paymentService.deletePayment(id);
+	public void deletePayment(@PathVariable("IDPAYMENT")Integer idPayment) {
+		paymentService.deletePayment(idPayment);
 	}
 }
