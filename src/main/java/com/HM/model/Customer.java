@@ -14,16 +14,16 @@ public class Customer {
     @Column(name = "IDCUSTOMER", unique = true, nullable = false)
     private Integer idCustomer;
 
-    @Column(name = "FIRSTNAME", unique = true, nullable = false)
+    @Column(name = "FIRSTNAME", nullable = false)
     private String firstName;
 
-    @Column(name = "LASTNAME", unique = true, nullable = false)
+    @Column(name = "LASTNAME", nullable = false)
     private String lastName;
 
     @Column(name = "EMAIL", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "PASSWORD", unique = true, nullable = false)
+    @Column(name = "PASSWORD", nullable = false)
     private String password;
 
     public Customer() {

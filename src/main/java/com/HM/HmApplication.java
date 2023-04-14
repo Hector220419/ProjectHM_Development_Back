@@ -18,8 +18,8 @@ public class HmApplication {
 
 	}
 
-
-/*	@Bean
+/*
+	@Bean
 	public FilterRegistrationBean<JwtFilter> jwtFilter() {
 		FilterRegistrationBean<JwtFilter> registrationBean =
 				new FilterRegistrationBean<>();
@@ -28,6 +28,6 @@ public class HmApplication {
 		return registrationBean;
 	}
 
+*/
 
- */
 }
